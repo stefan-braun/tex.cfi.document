@@ -1,0 +1,120 @@
+%!TEX root = ../seminar.tex
+\documentclass[11pt,DIV=12,parskip=half]{scrartcl}
+
+%Titel und Author
+\newcommand\myTitle{Control Flow Integrity \\
+Principles, Implementations, and Applications}
+\newcommand\myAuthor{Stefan Braun}
+
+\setlength{\emergencystretch}{1em}
+
+% Schrifteneinbindung in Ahängigkeit von der Engine
+\usepackage{ifluatex}
+\ifluatex
+	\usepackage{luatex85,shellesc}
+	\usepackage{fontspec}
+	\usepackage{microtype}
+	\defaultfontfeatures{Ligatures=TeX}
+	\setmainfont{TeXGyreTermes-Regular}
+	%\setmainfont{Caladea}
+	\setmonofont{Ubuntu Mono}
+	\newfontfamily\myletterspacedfont[LetterSpace=4,Ligatures=TeX]{TeXGyreTermes Bold}
+	\newcommand\mysectionfont{\selectfont\myletterspacedfont}
+
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[scaled=0.94]{inconsolata}
+	\usepackage{tgtermes}
+	\usepackage{microtype}
+	\usepackage[T1]{fontenc}
+	\newcommand\mysectionfont{\rmfamily\bfseries}
+\fi
+
+% Hyperref und biblatex
+\usepackage[colorlinks, linkcolor=black, citecolor=black, filecolor=black, urlcolor=black]{hyperref}
+\usepackage[backend=biber,style=numeric,citestyle=numeric-comp,hyperref=true,backref=true,block=none,maxcitenames=3,maxbibnames=100]{biblatex}
+\addbibresource{imports/references_seminar.bib}
+
+% Abstände vor und nach Überschriften
+% \usepackage{titlesec}
+% %\titlespacing*{\section}{0pt}{12pt}{6pt}
+% \titlespacing*{\subsection}{0pt}{12pt}{6pt}
+
+% Abstände vor Absätzen
+% \usepackage{parskip}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{6pt}
+
+%Farben
+\usepackage{color,xcolor}
+\definecolor{listingbackground}{HTML}{F4F4F4}
+
+
+%Weitere Pakete
+\usepackage[singlespacing]{setspace}
+\usepackage{caption}
+\usepackage[newfloat]{minted}
+\setminted{tabsize=4}
+\setminted{obeytabs}
+\setminted{linenos}
+\setminted{bgcolor=listingbackground}
+\setmintedinline{breaklines}
+\setmintedinline{bgcolor={}}
+
+\usepackage{amssymb,amsmath}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{graphicx}
+
+\def\pgfsysdriver{pgfsys-pdftex.def} %for texlive 2016
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadows.blur}
+\usepackage{tikz-3dplot}
+\definecolor{Gray}{HTML}{444444}
+\usetikzlibrary{
+    shapes,
+    shapes.symbols}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=newest}
+\definecolor{ResponseOrange}{HTML}{FF9900}
+\definecolor{myGray}{HTML}{23373b}
+
+
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=imports/seminar/,optimize command away=\includepdf]
+
+
+%\usepackage[tmargin=1in,bmargin=2cm,lmargin=1in,rmargin=1in]{geometry}
+
+% Schrifteinstellungen
+\addtokomafont{disposition}{\rmfamily\normalfont}
+\addtokomafont{section}{\fontsize{14pt}{-3pt}\mysectionfont}
+\addtokomafont{subsection}{\fontsize{14pt}{8pt}\mysectionfont}
+\addtokomafont{paragraph}{\selectfont\rmfamily\itshape}
+
+
+\RedeclareSectionCommand[%
+  beforeskip=-1\baselineskip,
+  afterskip=0.25\baselineskip
+]{section}
+
+\RedeclareSectionCommand[%
+  beforeskip=-.5\baselineskip,
+  afterskip=0.25\baselineskip
+]{subsection}
+
+
+% Titel
+\title{\LARGE \vspace*{-30pt} Technische Hochschule Ingolstadt \\ \vspace{10pt} Seminar \\ Control Flow Checking \\ \vspace{6pt}{\Large Sommersemester 2016 \vspace{40pt} \\ Seminararbeit\vspace{10pt} \\ \myTitle \vspace{10pt} \\ von \\ \vspace{6pt}  \myAuthor} \vspace*{-36pt}}
+\author{}
+\date{}
+
+%Caption von Listings
+% \DeclareCaptionFont{small}{\color{white}\sffamily}
+% \DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+% \captionsetup[listing]{position=bottom}
