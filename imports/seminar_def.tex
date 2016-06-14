@@ -14,11 +14,11 @@ Principles, Implementations, and Applications}
 	\usepackage{luatex85,shellesc}
 	\usepackage{fontspec}
 	\usepackage{microtype}
-	% \defaultfontfeatures{Ligatures=TeX}
-	\setmainfont{TeXGyreTermes-Regular}
-	%\setmainfont{Caladea}
+	\defaultfontfeatures{Ligatures=TeX}
+	\setmainfont{Times New Roman}
+	%\setmainfont{Caladea} %[LetterSpace=4]
 	\setmonofont{Ubuntu Mono}
-	\newfontfamily\myletterspacedfont[LetterSpace=4]{TeXGyreTermes Bold}
+	\newfontfamily\myletterspacedfont{Times New Roman}
 	\newcommand\mysectionfont{\selectfont\myletterspacedfont}
 
 \else
@@ -30,6 +30,16 @@ Principles, Implementations, and Applications}
 	\newcommand\mysectionfont{\rmfamily\bfseries}
 \fi
 
+
+\RedeclareSectionCommand[%
+  beforeskip=-1\baselineskip,
+  afterskip=0.25\baselineskip
+]{section}
+
+\RedeclareSectionCommand[%
+  beforeskip=-.5\baselineskip,
+  afterskip=0.25\baselineskip
+]{subsection}
 % Hyperref und biblatex
 \usepackage[colorlinks, linkcolor=black, citecolor=black, filecolor=black, urlcolor=black]{hyperref}
 \usepackage[backend=biber,style=numeric,citestyle=numeric-comp,hyperref=true,backref=true,block=none,maxcitenames=3,maxbibnames=100]{biblatex}
@@ -93,20 +103,10 @@ Principles, Implementations, and Applications}
 
 % Schrifteinstellungen
 \addtokomafont{disposition}{\rmfamily\normalfont}
-\addtokomafont{section}{\fontsize{14pt}{-3pt}\mysectionfont}
-\addtokomafont{subsection}{\fontsize{14pt}{8pt}\mysectionfont}
+\addtokomafont{section}{\fontsize{14pt}{-3pt}\mysectionfont\bfseries}
+\addtokomafont{subsection}{\fontsize{14pt}{8pt}\mysectionfont\bfseries}
 \addtokomafont{paragraph}{\selectfont\rmfamily\itshape}
 
-
-\RedeclareSectionCommand[%
-  beforeskip=-1\baselineskip,
-  afterskip=0.25\baselineskip
-]{section}
-
-\RedeclareSectionCommand[%
-  beforeskip=-.5\baselineskip,
-  afterskip=0.25\baselineskip
-]{subsection}
 
 
 % Titel
